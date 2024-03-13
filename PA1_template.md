@@ -42,14 +42,25 @@ stepsByDay <- tapply(activityData$steps, activityData$date, sum, na.rm=TRUE)
 ##### 1. Make a histogram of the total number of steps taken each day
 
 ```r
-qplot(stepsByDay, xlab='Total steps per day', ylab='Frequency using binwith 500', binwidth=500)
+hist(stepsByDay, xlab='Total steps per day', ylab='Frequency using binwith 500', binwidth=500)
 ```
 
 ```
-## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.
+## Warning in plot.window(xlim, ylim, "", ...): "binwidth" is not a graphical
+## parameter
+```
+
+```
+## Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...):
+## "binwidth" is not a graphical parameter
+```
+
+```
+## Warning in axis(1, ...): "binwidth" is not a graphical parameter
+```
+
+```
+## Warning in axis(2, at = yt, ...): "binwidth" is not a graphical parameter
 ```
 
 ![](Figs/unnamed-chunk-5-1.png)<!-- -->
@@ -116,6 +127,13 @@ activityDataImputed$steps <- impute(activityData$steps, fun=mean)
 ```r
 stepsByDayImputed <- tapply(activityDataImputed$steps, activityDataImputed$date, sum)
 qplot(stepsByDayImputed, xlab='Total steps per day (Imputed)', ylab='Frequency using binwith 500', binwidth=500)
+```
+
+```
+## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
 ```
 
 ![](Figs/unnamed-chunk-12-1.png)<!-- -->

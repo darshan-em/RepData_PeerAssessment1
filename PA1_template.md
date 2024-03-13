@@ -3,10 +3,6 @@ output:
   html_document: 
     keep_md: true
 ---
-
-```r
-knitr::opts_chunk$set(fig.path='Figs/')
-```
 # Reproducible Research: Peer Assessment 1
 
 
@@ -42,28 +38,17 @@ stepsByDay <- tapply(activityData$steps, activityData$date, sum, na.rm=TRUE)
 ##### 1. Make a histogram of the total number of steps taken each day
 
 ```r
-hist(stepsByDay, xlab='Total steps per day', ylab='Frequency using binwith 500', binwidth=500)
+qplot(stepsByDay, xlab='Total steps per day', ylab='Frequency using binwith 500', binwidth=500)
 ```
 
 ```
-## Warning in plot.window(xlim, ylim, "", ...): "binwidth" is not a graphical
-## parameter
+## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
 ```
 
-```
-## Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...):
-## "binwidth" is not a graphical parameter
-```
-
-```
-## Warning in axis(1, ...): "binwidth" is not a graphical parameter
-```
-
-```
-## Warning in axis(2, at = yt, ...): "binwidth" is not a graphical parameter
-```
-
-![](Figs/unnamed-chunk-5-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
 
 ##### 2. Calculate and report the mean and median total number of steps taken per day
 
@@ -91,7 +76,7 @@ ggplot(data=averageStepsPerTimeBlock, aes(x=interval, y=meanSteps)) +
     ylab("average number of steps taken") 
 ```
 
-![](Figs/unnamed-chunk-8-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
 
 ##### 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -129,14 +114,7 @@ stepsByDayImputed <- tapply(activityDataImputed$steps, activityDataImputed$date,
 qplot(stepsByDayImputed, xlab='Total steps per day (Imputed)', ylab='Frequency using binwith 500', binwidth=500)
 ```
 
-```
-## Warning: `qplot()` was deprecated in ggplot2 3.4.0.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.
-```
-
-![](Figs/unnamed-chunk-12-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
 
 ##### ... and Calculate and report the mean and median total number of steps taken per day. 
 
@@ -170,4 +148,4 @@ ggplot(averagedActivityDataImputed, aes(interval, steps)) +
     ylab("avarage number of steps")
 ```
 
-![](Figs/unnamed-chunk-15-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
